@@ -3,11 +3,13 @@ package com.example.study.model.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity // DB table 과 동일하다
 //@Table(name = "user") DB 테이블과 동일하면 생략가능
 public class User {
