@@ -20,10 +20,10 @@ public class OrderDetailRepositoryTest extends StudyApplicationTests {
         orderDetail.setOrderAt(LocalDateTime.now());
 
         // 어떤 사람?
-        orderDetail.setItemId(7L);
+//        orderDetail.setItemId(7L);
 
         // 어떤 상품?
-        orderDetail.setUserId(1L);
+//        orderDetail.setUserId(1L);
 
         OrderDetail newOrderDetail = orderDetailRepository.save(orderDetail);
         Assertions.assertNotNull(newOrderDetail);

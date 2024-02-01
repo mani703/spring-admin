@@ -1,12 +1,10 @@
 package com.example.study.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
@@ -14,6 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity // order_detail 자동 연결
+@ToString(exclude = {"user", "item"})
 public class OrderDetail {
 
     @Id
@@ -22,7 +21,11 @@ public class OrderDetail {
 
     private LocalDateTime orderAt;
 
-    private Long userId;
+    // N : 1
+    @ManyToOne
+    private User user;  // user_id
 
-    private Long itemId;
+    // N : 1
+    @ManyToOne
+    private Item item;
 }
