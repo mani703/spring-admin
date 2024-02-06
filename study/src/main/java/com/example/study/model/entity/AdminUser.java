@@ -1,34 +1,38 @@
 package com.example.study.model.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-@Data
-@AllArgsConstructor
 @NoArgsConstructor
-@Entity // DB table 과 동일하다
-//@Table(name = "user") DB 테이블과 동일하면 생략가능
-public class User {
+@AllArgsConstructor
+@Data
+@Entity
+public class AdminUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-//    @Column(name = "account") DB 컬럼과 동일하면 생략가능
     private String account;
 
     private String password;
 
     private String status;
 
-    private String email;
+    private String role;
 
-    private String phoneNumber;
+    private LocalDateTime lastLoginAt;
+
+    private LocalDateTime passwordUpdatedAt;
+
+    private int loginFailCount;
 
     private LocalDateTime registeredAt;
 
@@ -41,8 +45,4 @@ public class User {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
-
-    // 1 : N
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-//    private List<OrderDetail> orderDetailList;
 }

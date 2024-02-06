@@ -1,32 +1,38 @@
 package com.example.study.model.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity // order_detail 자동 연결
-//@ToString(exclude = {"user", "item"})
-public class OrderDetail {
+@Data
+@Entity
+public class Partner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+
     private String status;
 
-    private LocalDateTime arrivalDate;
+    private String address;
 
-    private Integer quantity;
+    private String callCenter;
 
-    private BigDecimal totalPrice;
+    private String partnerNumber;
+
+    private String businessNumber;
+
+    private String ceoName;
 
     private LocalDateTime createdAt;
 
@@ -35,12 +41,4 @@ public class OrderDetail {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
-
-//    // N : 1
-//    @ManyToOne
-//    private User user;  // user_id
-//
-//    // N : 1
-//    @ManyToOne
-//    private Item item;
 }

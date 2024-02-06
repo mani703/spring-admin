@@ -1,20 +1,21 @@
 package com.example.study.model.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity // order_detail 자동 연결
-//@ToString(exclude = {"user", "item"})
-public class OrderDetail {
+@Data
+@Entity
+public class OrderGroup {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +23,21 @@ public class OrderDetail {
 
     private String status;
 
-    private LocalDateTime arrivalDate;
+    private String orderType;   // 주문의 형태 - 일괄/개별
 
-    private Integer quantity;
+    private String revAddress;
+
+    private String revName;
+
+    private String paymentType; // 카드/현금
 
     private BigDecimal totalPrice;
+
+    private Integer totalQuantity;
+
+    private LocalDateTime orderAt;
+
+    private LocalDateTime arrivalAt;
 
     private LocalDateTime createdAt;
 
@@ -35,12 +46,4 @@ public class OrderDetail {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
-
-//    // N : 1
-//    @ManyToOne
-//    private User user;  // user_id
-//
-//    // N : 1
-//    @ManyToOne
-//    private Item item;
 }
