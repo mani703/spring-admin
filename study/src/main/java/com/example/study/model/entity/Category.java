@@ -26,7 +26,7 @@ public class Category {
 
     private LocalDateTime createdAt;
 
-    private String createBy;
+    private String createdBy;
 
     private LocalDateTime updatedAt;
 
