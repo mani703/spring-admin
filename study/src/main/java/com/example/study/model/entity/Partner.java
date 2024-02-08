@@ -34,6 +34,10 @@ public class Partner {
 
     private String ceoName;
 
+    private LocalDateTime registeredAt;
+
+    private LocalDateTime unregisteredAt;
+
     private LocalDateTime createdAt;
 
     private String createdBy;
@@ -41,4 +45,6 @@ public class Partner {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    private Long categoryId;
 }
