@@ -37,7 +37,7 @@ public class OrderGroup {
 
     private LocalDateTime orderAt;
 
-    private LocalDateTime arrivalAt;
+    private LocalDateTime arrivalDate;
 
     private LocalDateTime createdAt;
 
@@ -46,4 +46,6 @@ public class OrderGroup {
     private LocalDateTime updatedAt;
 
     private String updatedBy;
+
+    private Long userId;
 }
