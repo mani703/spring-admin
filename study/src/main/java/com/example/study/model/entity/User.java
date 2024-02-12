@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity // DB table 과 동일하다
+@ToString(exclude = {"orderGroupList"})
 //@Table(name = "user") DB 테이블과 동일하면 생략가능
 public class User {
 
@@ -42,7 +44,7 @@ public class User {
 
     private String updatedBy;
 
-    // 1 : N
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-//    private List<OrderDetail> orderDetailList;
+    // User 1 : N OrderGroup
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    private List<OrderGroup> orderGroupList;
 }
