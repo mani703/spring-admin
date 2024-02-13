@@ -1,19 +1,19 @@
 package com.example.study.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Entity
+@ToString(exclude = {"itemList", "category"})
 public class Partner {
 
     @Id
@@ -46,5 +46,11 @@ public class Partner {
 
     private String updatedBy;
 
-    private Long categoryId;
+    // Partner N : 1 Category
+    @ManyToOne
+    private Category category;
+
+    // Partner 1 : N Item
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "partner")
+    private List<Item> itemList;
 }
