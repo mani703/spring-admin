@@ -1,10 +1,7 @@
 package com.example.study.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity // DB table 과 동일하다
 @ToString(exclude = {"orderGroupList"})
+@Builder
 //@Table(name = "user") DB 테이블과 동일하면 생략가능
 public class User {
 
