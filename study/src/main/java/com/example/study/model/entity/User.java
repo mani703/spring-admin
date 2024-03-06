@@ -2,6 +2,8 @@ package com.example.study.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import lombok.experimental.Accessors;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,8 +12,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity // DB table 과 동일하다
+@EntityListeners(AuditingEntityListener.class)
 @ToString(exclude = {"orderGroupList"})
 @Builder
+@Accessors(chain = true)
 //@Table(name = "user") DB 테이블과 동일하면 생략가능
 public class User {
 

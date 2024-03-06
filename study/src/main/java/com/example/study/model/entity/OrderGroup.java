@@ -1,10 +1,9 @@
 package com.example.study.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
+import lombok.experimental.Accessors;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,7 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Entity
-@ToString(exclude = {"user", "orderDetailList"})
+@ToString(exclude = {"user","orderDetailList"})
+@EntityListeners(AuditingEntityListener.class)
+@Builder
+@Accessors(chain = true)
 public class OrderGroup {
 
     @Id

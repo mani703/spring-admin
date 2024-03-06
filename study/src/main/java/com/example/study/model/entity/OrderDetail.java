@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -12,8 +13,9 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity // order_detail 자동 연결
-@ToString(exclude = {"orderGroup", "item"})
+@Entity
+@ToString(exclude = {"orderGroup","item"})
+@EntityListeners(AuditingEntityListener.class)
 public class OrderDetail {
 
     @Id
